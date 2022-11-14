@@ -10,3 +10,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.container-defined {
+  margin: 0 auto;
+  width: 60vw;
+}
