@@ -1,8 +1,9 @@
 class BookmarksController < ApplicationController
-  def new
-    @bookmark = Bookmark.new
-    @list = List.find(params[:list_id])
-  end
+  # BEFORE MOVING BOOKMARK FORM TO LIST SHOW
+  # def new
+  #   @bookmark = Bookmark.new
+  #   @list = List.find(params[:list_id])
+  # end
 
   def show
     @bookmark = Bookmark.find(params[:id])
