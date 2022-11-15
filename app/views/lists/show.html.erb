@@ -1,3 +1,14 @@
 <h1>List show: details of list <%= @list.name.capitalize%></h1>
 <br>
 <p>List name: <%= @list.name.capitalize %></p>
+<%= link_to "New bookmark",  new_list_bookmark_path(@list), class: "btn btn-primary"%>
+<h1>Movies (Bookmarks) for this list</h1>
+<ul>
+  <% @list.movies.each do |movie| %>
+  <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+    <li>
+    <%= movie.title.capitalize %>
+    <%= link_to "Remove movie from list", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'btn btn-primary' %>
+    </li>
+  <% end %>
+</ul>

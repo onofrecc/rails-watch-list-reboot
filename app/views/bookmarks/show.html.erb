@@ -1,0 +1,5 @@
+<h1>Bookmark show: details of bookmark</h1>
+<br>
+<p>Movie title: <%= @bookmark.movie.title.capitalize %></p>
+<p>Bookmark comment: <%= @bookmark.comment %></p>
+<%= link_to "delete this bookmark, this movie from the list",  new_list_bookmark_path(@list), class: "btn btn-primary"%>
