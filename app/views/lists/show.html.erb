@@ -1,6 +1,7 @@
 <h1>List show: details of list <%= @list.name.capitalize%></h1>
 <br>
 <p>List name: <%= @list.name.capitalize %></p>
+<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
 <br>
 <h1>Add a movie to this list</h1>
 <%= render "shared/form_bookmark" %>
