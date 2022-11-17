@@ -10,12 +10,15 @@
 
 <br><br>
 <h1>Movies in this list</h1>
-<ul>
-  <% @list.movies.each do |movie| %>
+<% @list.movies.each do |movie| %>
   <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-    <li>
-    <%= movie.title.capitalize %>
-    <%= link_to "Remove movie from list", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'btn btn-primary' %>
-    </li>
-  <% end %>
-</ul>
+  <div class="card mb-3">
+    <%= image_tag movie.poster_url, class: "card-img-top" %>
+    <div class="card-body">
+      <h5 class="card-title"><%= movie.title.capitalize %></h5>
+      <p class="card-text"><%= movie.overview %></p>
+      <p class="card-text"><small class="text-muted"><%= movie.rating %></p></small></p>
+      <p class="card-text"><small class="text-muted">  <%= link_to "Remove movie from list", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"} %></p></small></p>
+    </div>
+  </div>
+<% end %>
